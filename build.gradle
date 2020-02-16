@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'com.reklama.lv'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    seleniumVersion = '3.141.59'
+    junitPlatformVersion = '1.6.0'
+    junitJupiterVersion = '5.6.0'
+}
+
+dependencies {
+    compile "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
+    compile("io.github.bonigarcia:webdrivermanager:3.8.1")
+    testCompile "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
+    testCompile "org.junit.jupiter:junit-jupiter:${junitJupiterVersion}"
+    testCompile "org.junit.jupiter:junit-jupiter-params:${junitJupiterVersion}"
+    testCompile "org.junit.platform:junit-platform-launcher:${junitPlatformVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}
