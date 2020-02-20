@@ -2,14 +2,12 @@ package com.reklama.lv;
 
 import com.reklama.lv.utils.WebEventListener;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.io.FileInputStream;
@@ -68,12 +66,7 @@ public class TestBase {
 
 
     @AfterEach
-     void cleanUp() {
-//        try {
-//            Thread.sleep(5 * 60 * 1000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-        getDriver().close();
+    void cleanUp() {
+        getDriver().quit();
     }
 }
