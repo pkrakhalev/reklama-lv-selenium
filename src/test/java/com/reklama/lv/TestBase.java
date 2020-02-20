@@ -60,8 +60,9 @@ public class TestBase {
         eventDriver.register(new WebEventListener());
         driver.set(eventDriver);
 
-        getDriver().manage().timeouts().pageLoadTimeout(pageLoadTimeout, TimeUnit.SECONDS);
-        getDriver().manage().timeouts().implicitlyWait(implicitlyWait, TimeUnit.SECONDS);
+        WebDriver.Timeouts timeouts = getDriver().manage().timeouts();
+        timeouts.pageLoadTimeout(pageLoadTimeout, TimeUnit.SECONDS);
+        timeouts.implicitlyWait(implicitlyWait, TimeUnit.SECONDS);
     }
 
 
